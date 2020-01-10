@@ -31,8 +31,8 @@ This application was made as part of a coding project for Eva Wiedmann, a studen
 ||||
 
 
-CREATE DATABASE volunteer_organizer;
-\c volunteer_organizer;
+CREATE DATABASE volunteer_tracker;
+\c volunteer_tracker;
 CREATE TABLE projects (id serial PRIMARY KEY, name varchar);
 CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar);
 <!-- CREATE TABLE books_authors (id serial PRIMARY KEY, author_id int, book_id int); -->
