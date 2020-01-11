@@ -1,0 +1,29 @@
+<h3><center>Volunteer Search</center></h3>
+<form action="/volunteers">
+  <div class="form-group">
+    <input id="search" name="search" class="form-control bg-success" type="text">
+  </div>
+  <button type="submit" class="btn btn-primary">Go!</button>
+</form>
+
+<h3><center>Volunteers</center></h3>
+<% if @volunteers.any? %>
+<ul>
+  <% @volunteers.each do |volunteer| %>
+  <li><a href="/volunteers/<%= volunteer.id %>"><strong><%= volunteer.name %>:</strong></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no volunteers to display.</p>
+<% end %>
+
+<a href="/volunteers/new">Add a new volunteer</a><br>
+
+<a href="/">Return to main page</a>
+
+<!-- <form action="/volunteers" method="get">
+  <button type="submit" name="alphabetize" class="btn btn-warning">Alphabetize!</button>
+  <button type="submit" name="sort_year" class="btn btn-warning">Sort by year!</button>
+  <button type="submit" name="sort_cost" class="btn btn-warning">Sort by cost!</button>
+  <button type="submit" name="random" class="btn btn-warning">Get a random volunteer</button>
+</form> -->
