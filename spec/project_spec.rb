@@ -5,11 +5,6 @@ class Project
   def initialize(attributes)
     @name = attributes.fetch(:name)
     @id = attributes.fetch(:id).to_i
-    @year = attributes[:year].to_i
-    @genre = attributes.fetch(:genre)
-    @volunteer = attributes.fetch(:volunteer)
-    @status = attributes.fetch(:status)
-    @cost = attributes.fetch(:cost).to_f
   end
 #
 #   def self.all()
@@ -81,28 +76,14 @@ class Project
 #     if project
 #       name = project.fetch("name")
 #       id = project.fetch("id").to_i
-#       year = project.fetch("year").to_i
-#       genre = project.fetch("genre")
-#       volunteer = project.fetch("volunteer")
-#       status = project.fetch("status")
-#       cost = project.fetch("cost").to_f
 #       Project.new({:name => name, :id => id, :year => year, :genre => genre, :volunteer => volunteer, :status => status, :cost => cost})
 #     else
 #       nil
 #     end
 #   end
-#
-#   def self.search_name(name)
-#     projects = self.all
-#     projects.select { |project| /#{name}/i.match? project.name }
-#   end
-#
-#   def update(name, year, genre, volunteer, cost)
+
+#   def update(name)
 #     @name = name
-#     @year = year
-#     @genre = genre
-#     @volunteer = volunteer
-#     @cost = cost
 #     DB.exec("UPDATE projects SET name = '#{@name}', year = '#{@year}', genre = '#{@genre}', volunteer = '#{@volunteer}', cost = '#{@cost}' WHERE id = #{id};")
 #   end
 #

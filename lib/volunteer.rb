@@ -1,10 +1,11 @@
 class Volunteer
   # attr_reader :id
-  attr_accessor :name, :id
+  attr_accessor :name, :id, :project_id
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
     @id = attributes.fetch(:id)
+    @project_id = attributes.fetch(:project_id)
   end
 
   def ==(volunteer_to_compare)
@@ -29,36 +30,6 @@ class Volunteer
   def save
     result = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i
-  end
-
-  def self.find(id)
-    volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first
-    if volunteer
-      name = volunteer.fetch("name")
-      id = volunteer.fetch("id").to_i
-      Volunteer.new({:name => name, :id => id})
-    else
-      nil
-    end
-  end
-
-  def self.search_name(name)
-    volunteers = self.all
-    volunteers.select { |volunteer| /#{name}/i.match? volunteer.name }
-  end
-
-  def update(attributes)
-    if (attributes.has_key?(:name)) && (attributes.fetch(:name) != nil)
-      @name = attributes.fetch(:name)
-      DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
-    end
-    project_name = attributes.fetch(:project_name)
-    if project_name != nil
-      project = DB.exec("SELECT * FROM projects WHERE lower(name)='#{project_name.downcase}';").first
-      if project != nil
-        DB.exec("INSERT INTO projects_volunteers (project_id, volunteer_id) VALUES (#{project['id'].to_i}, #{@id});")
-      end
-    end
   end
 
   def delete

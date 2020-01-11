@@ -1,0 +1,25 @@
+<h3><center>Projects Search</center></h3>
+<form action="/projects">
+  <div class="form-group">
+    <input id="search" name="search" class="form-control bg-success" type="text">
+  </div>
+  <button type="submit" class="btn btn-primary">Go!</button>
+</form>
+
+<h3><center>Available Projects</center></h3>
+<% if @projects.any? %>
+<ul>
+  <% @projects.each do |project| %>
+  <li><a href="/projects/<%= project.id %>"><strong><%= project.name %>:</strong> <%= project.status == "t" ? "Available" : "Sold" %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no projects to display.</p>
+<% end %>
+
+<form action="/projects" method="get">
+  <button type="submit" name="random" class="btn btn-warning">Get a random project</button>
+</form>
+
+<a href="/projects/new">Add a new project</a><br>
+<a href="/">Return to main page</a>
