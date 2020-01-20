@@ -1,7 +1,7 @@
-<h3><center>Projects Search</center></h3>
-<form action="/projects">
+<h3><center>Add a new porject</center></h3>
+<form action="/projects" method="post">
   <div class="form-group">
-    <input id="search" name="search" class="form-control bg-success" type="text">
+    <input id="project_title" name="project_title" class="form-control bg-success" type="text">
   </div>
   <button type="submit" class="btn btn-primary">Go!</button>
 </form>
@@ -16,10 +16,3 @@
 <% else %>
 <p>There are currently no projects to display.</p>
 <% end %>
-
-<form action="/projects" method="get">
-  <button type="submit" name="random" class="btn btn-warning">Get a random project</button>
-</form>
-
-<a href="/projects/new">Add a new project</a><br>
-<a href="/">Return to main page</a>
