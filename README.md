@@ -2,7 +2,7 @@
 
 ##### By Eva Wiedmann
 
-###### _First published 2020-01-10_
+###### _2020-01-10_
 
 ## Description:
 <!-- This application was made as part of a coding project for Eva Wiedmann, a student at _[Epicodus](http://www.epicodus.com)_, a vocational school for technology careers based in Portland, OR. The project is designed to create an application to catalog a library's books and let patrons check them out. -->

@@ -10,7 +10,7 @@
 <% if @projects.any? %>
 <ul>
   <% @projects.each do |project| %>
-  <li><a href="/projects/<%= project.id %>"><strong><%= project.name %>:</strong> <%= project.status == "t" ? "Available" : "Sold" %></a></li>
+  <li><a href="/projects/<%= project.id %>"><strong><%= project.title %>:</strong></a></li>
   <% end %>
 </ul>
 <% else %>
