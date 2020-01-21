@@ -16,7 +16,7 @@ end
 
 post('/projects/:id/volunteers') do
   @project = Project.find(params[:id].to_i())
-  volunteer = Volunteer.new(params[:name])
+  volunteer = Volunteer.new(params[:volunteer_name])
   volunteer.save()
   erb(:project)
 end
